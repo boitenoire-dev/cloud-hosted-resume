@@ -1,10 +1,10 @@
 resource "aws_dynamodb_table" "visitor-tracker" {
   name         = "visitor-tracker"
   billing_mode = "PAY_PER_REQUEST"
-  hash_key     = "visitor-id"
+  hash_key     = "visitorid"
 
   attribute {
-    name = "visitor-id"
+    name = "visitorid"
     type = "S"
   }
 
@@ -12,4 +12,6 @@ resource "aws_dynamodb_table" "visitor-tracker" {
     Project = "Cloud Resume Project"
   }
 }
+
+
 
