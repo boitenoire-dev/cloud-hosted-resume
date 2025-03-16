@@ -4,14 +4,36 @@
     <meta charset="utf-8">
     <title>Isaac's Resume</title>
 </head>
-    <body>
-        <div>
+    <body onload="visitorCount()">
+        <div >
             <span>Hello, this is my resume!</span>
-            <p id="countdisplay"></p>
+            <p id="output">You are visitor number: </p>
         </div>
 
-        <script src="countdisplay.js">
-            document.getElementById("countdisplay").innerText = visitor;
+        <script>
+            function visitorCount() {
+                let outputElement = document.getElementById("output");
+                let visitors = 0;
+
+                fetch('https://nr9aeqflql.execute-api.us-west-2.amazonaws.com/production/visitors')
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Network response was not ok')
+                        }
+
+                        return response.json()
+                    })
+                    .then(userData => {
+                        //console.log('User Data:', userData)
+                        accessValues = JSON.stringify(userData)
+                        extractVisitors = JSON.parse(accessValues)
+                        outputElement.innerHTML = accessValues
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    })
+            }
+
         </script>
     </body>
 </html>

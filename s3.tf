@@ -38,12 +38,6 @@ resource "aws_s3_object" "resume" {
   content_type = "text/html"
 }
 
-resource "aws_s3_object" "jscounter" {
-  bucket = aws_s3_bucket.lambda-visitor-counter-resources.id
-  key    = "countdisplay.js"
-  source = "countdisplay.js"
-  etag   = filemd5(data.archive_file.visitor-counter-lambda.output_path)
-}
 
 resource "aws_s3_bucket_website_configuration" "visitorcounterconfig" {
   bucket = aws_s3_bucket.lambda-visitor-counter-resources.id
