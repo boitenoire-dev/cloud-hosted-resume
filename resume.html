@@ -24,10 +24,11 @@
                         return response.json()
                     })
                     .then(userData => {
-                        //console.log('User Data:', userData)
-                        accessValues = JSON.stringify(userData)
-                        extractVisitors = JSON.parse(accessValues)
-                        outputElement.innerHTML = accessValues
+                        const visits = userData["visitor(s)"][0].visits;
+                        console.log('Visits:', visits);
+
+                        // Optionally, display it in your output element:
+                        outputElement.innerHTML = `Visits: ${visits}`;
                     })
                     .catch(error => {
                         console.error('Error:', error);
