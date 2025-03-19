@@ -1,0 +1,22 @@
+name: Deploy resume and/or infrastructure components
+on:
+  push:
+    branches:
+      - main
+jobs:
+  terraform-fmt:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Checkout the contents
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: "0"
+      - name: Enforce Terraform formatting
+        uses: pvicol/enforce-terraform-fmt@v1.2.0
+        with:
+          terraform_version: 1.6.6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
