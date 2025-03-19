@@ -1,8 +1,9 @@
 name: Deploy resume and/or infrastructure components
 on:
   push:
-    - "**/*.tf"
-    - "**/*.tfvars"
+    paths:
+      - "**/*.tf"
+      - "**/*.tfvars"
 
 jobs:
   terraform-fmt:
