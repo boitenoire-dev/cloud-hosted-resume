@@ -1,10 +1,25 @@
-name: Must run on custom runner
+name: Deploy resume and/or infrastructure components
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  init:
-    runs-on: self-hosted
+  terraform-fmt:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
-      - run: echo 'hello cloud gurus'
-      - run: echo $HOSTNAME
+      - name: Checkout the contents
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: "0"
+
+      - name: Enforce Terraform formatting
+        uses: pvicol/enforce-terraform-fmt@v1.2.0
+        with:
+          terraform_version: "1.9.8"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
