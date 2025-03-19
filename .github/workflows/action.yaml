@@ -1,9 +1,9 @@
-name: Enforce Terraform Format
+name: Deploy resume and/or infrastructure components
+
 on:
-  pull_request:
-    paths:
-      - "**/*.tf"
-      - "**/*.tfvars"
+  push:
+    - "**/*.tf"
+    - "**/*.tfvars"
 
 jobs:
   terraform-fmt:
