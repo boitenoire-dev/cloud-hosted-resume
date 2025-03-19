@@ -20,6 +20,6 @@ jobs:
       - name: Enforce Terraform formatting
         uses: pvicol/enforce-terraform-fmt@v1.2.0
         with:
-          terraform_version: "1.9.8"
+          terraform_version: "1.6.6"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
