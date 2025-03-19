@@ -1,5 +1,4 @@
 name: Deploy resume and/or infrastructure components
-
 on:
   push:
     - "**/*.tf"
