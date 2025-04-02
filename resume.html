@@ -1,40 +1,185 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Isaac's Resume</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pat McAfee Resume</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #f9fdff;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+        .header h1 {
+            color: #2a7db5;
+            margin: 0 0 10px 0;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .section-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #a8d5f2;
+            padding-bottom: 5px;
+            color: #2a7db5;
+            font-family: 'Roboto', sans-serif;
+            letter-spacing: 0.5px;
+        }
+        .job-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #2a7db5;
+        }
+        .job-period {
+            font-style: italic;
+            margin-bottom: 10px;
+            color: #666;
+        }
+        ul {
+            padding-left: 20px;
+            list-style-type: circle;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .contact-info {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #555;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .skill-category {
+            margin-right: 20px;
+            margin-bottom: 15px;
+        }
+        .skill-name {
+            font-weight: bold;
+            color: #2a7db5;
+        }
+        /* ATS-friendly additions */
+        /* Simple, clean semantic structure */
+        /* No complex layouts that might confuse parsers */
+        /* Text remains high contrast for readability */
+        /* No images or graphics that might interfere with parsing */
+    </style>
 </head>
-    <body onload="visitorCount()">
-        <div >
-            <span>Maloba te!</span>
-            <p id="output">You are visitor number: </p>
+<body>
+    <div class="header">
+        <h1>Pat McAfee</h1>
+        <div class="contact-info">
+            1 World Way, Los Angeles, CA 18922<br>
+            111-111-1111<br>
+            example@gmail.com
         </div>
+    </div>
 
-        <script>
-            function visitorCount() {
-                let outputElement = document.getElementById("output");
-                let visitors = 0;
+    <div class="section-title">EXPERIENCE</div>
+    
+    <div class="job-title">Yello</div>
+    <div class="job-title">Cloud Engineer <span class="job-period">November 2020 - Present</span></div>
+    <ul>
+        <li>Enhanced system monitoring by configuring automated alerts with Grafana dashboards, resulting in maintained high availability and consistent achievement of all SLA targets.</li>
+        <li>Reduced AWS S3 storage costs by 15% by configuring Thanos Compactor Kubernetes pods to efficiently purge unnecessary Prometheus data.</li>
+        <li>Improved security posture by automating IAM user key rotation using Python and AWS API, decreasing labor time by 85% while enhancing the environment's security.</li>
+        <li>Strengthened application security by collaborating with the security team to implement Veracode SCA and SAST scans, remediating vulnerabilities and automating Kubernetes Dashboard service account token rotation.</li>
+    </ul>
 
-                fetch('https://nr9aeqflql.execute-api.us-west-2.amazonaws.com/production/visitors')
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok')
-                        }
+    <div class="job-title">DELLEMC Corporation</div>
+    <div class="job-title">Senior Engineer <span class="job-period">January 2013 – November 2020</span></div>
+    <ul>
+        <li>Ensured high reliability of enterprise storage by installing, configuring, and supporting NetApp, EMC VNX, EMC UNITY, and EMC Isilon NAS arrays, enabling seamless data access across the Pfizer environment.</li>
+        <li>Minimized system downtime by resolving business-critical issues across storage, Linux, and Windows platforms, consistently meeting strict SLAs for application owners and management.</li>
+        <li>Improved operational efficiency by developing Bash scripts for log parsing and leveraging Python's Boto3 library to automate management of AWS S3 buckets, EC2 instances, and EBS snapshots.</li>
+        <li>Accelerated infrastructure provisioning by creating Ansible playbooks and Terraform configurations, delivering on-demand AWS and Linux infrastructure for business units and application teams.</li>
+    </ul>
 
-                        return response.json()
-                    })
-                    .then(userData => {
-                        const visits = userData["visitor(s)"][0].visits;
-                        console.log('Visits:', visits);
+    <div class="job-title">Jawood</div>
+    <div class="job-title">Systems Analyst <span class="job-period">February 2012 – January 2013</span></div>
+    <ul>
+        <li>Improved project quality by conducting UAT testing and detailed defect logging, contributing to the successful execution of the Blue Cross and Blue Shield of Minnesota Migration Project.</li>
+    </ul>
 
-                        // Optionally, display it in your output element:
-                        outputElement.innerHTML = `Visits: ${visits}`;
-                    })
-                    .catch(error => {
-                        console.error('Error:', error);
-                    })
-            }
+    <div class="job-title">Cerner Corporation</div>
+    <div class="job-title">Velocity Delivery Consultant <span class="job-period">March 2011 – December 2011</span></div>
+    <ul>
+        <li>Recovered approximately $3,000 in revenue by auditing the Physical Therapy department of Pawnee County Hospital using MySQL to identify charges that failed to interface with the billing system.</li>
+        <li>Identified revenue leakage points by conducting comprehensive department audits at Marcus Daly Memorial Hospital using SQL and Excel, enabling data-driven financial improvement decisions.</li>
+        <li>Facilitated digital transformation by training Nash Hospital staff on Cerner software functionality during go-live week, successfully converting operations from paper-based to a fully automated system.</li>
+        <li>Ensured application integrity by performing unit, parallel, system, and regression testing, validating that all domains and applications functioned correctly after system refreshes.</li>
+    </ul>
 
-        </script>
-    </body>
+    <div class="job-title">Blue Cross and Blue Shield of Michigan</div>
+    <div class="job-title">INROADS Intern <span class="job-period">May 2007 – February 2011</span></div>
+    <ul>
+        <li>Decreased reporting time by 60% by optimizing Excel spreadsheets and PivotTables for monthly metrics reports in the NASCO eBusiness department.</li>
+        <li>Enhanced data collection efficiency by developing HTML forms for gathering specific information about BCBSM's ERN Networks.</li>
+    </ul>
+
+    <div class="section-title">EDUCATION</div>
+    <div class="job-title">Bachelor's Degree in Management Information Systems <span class="job-period">Oakland University 2006-2010</span></div>
+
+    <div class="section-title">SKILLS</div>
+    <div class="skills-list">
+        <div class="skill-category">
+            <span class="skill-name">Operating Systems:</span> Red Hat Enterprise Linux (RHEL), Ubuntu
+        </div>
+        <div class="skill-category">
+            <span class="skill-name">Databases:</span> MySQL, Postgres
+        </div>
+        <div class="skill-category">
+            <span class="skill-name">Storage Arrays:</span> Isilon, VNX, NetApp FAS, Unity
+        </div>
+        <div class="skill-category">
+            <span class="skill-name">Scripting:</span> Bash, Python, Boto3, Terraform, Ansible
+        </div>
+        <div class="skill-category">
+            <span class="skill-name">Cloud Platforms:</span> Amazon Web Services (AWS)
+        </div>
+        <div class="skill-category">
+            <span class="skill-name">Containers:</span> Docker, Kubernetes
+        </div>
+    </div>
+    <script>
+        function visitorCount() {
+            let outputElement = document.getElementById("output");
+            let visitors = 0;
+
+            fetch('https://nr9aeqflql.execute-api.us-west-2.amazonaws.com/production/visitors')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok')
+                    }
+
+                    return response.json()
+                })
+                .then(userData => {
+                    const visits = userData["visitor(s)"][0].visits;
+                    console.log('Visits:', visits);
+
+                    // Optionally, display it in your output element:
+                    outputElement.innerHTML = `Visits: ${visits}`;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                })
+        }
+
+    </script>
+</body>
 </html>
