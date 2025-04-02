@@ -79,7 +79,7 @@
         /* No images or graphics that might interfere with parsing */
     </style>
 </head>
-<body>
+<body onload="visitorCount()">
     <div class="header">
         <h1>Isaac Masasabi</h1>
         <div class="contact-info">
@@ -150,7 +150,7 @@
         </div>
     </div>
     <div class="visitor-count">
-        <p id="output" onload="visitorCount()">You are visitor number: </p>
+        <p id="output">You are visitor number: </p>
     </div>
     <script>
         function visitorCount() {
